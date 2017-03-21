@@ -1,4 +1,4 @@
-# MIK_workshop_Islandoracon_2017
+# MIK workshop Islandoracon 2017
 
 Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your migration and batch loading preparation needs"
 
@@ -38,13 +38,28 @@ MIK uses .ini files to store configuration details. An MIK .ini file contains th
 
 ```
 [SYSTEM]
+; This section is not used on all systems and can be empty.
+
 [CONFIG]
+; Contains information about the .ini file and toolchain.
+
 [FETCHER]
+; Contains configuration options for the fetcher, which gets a list of items to process.
+
 [METADATA_PARSER]
+; Contains configuration options for the metadata parser, which converts data in the input list to MODS.
+
 [FILE_GETTER]
+; Contains configuration options for the file getter, which retrieves the file (image, PDF, video, etc.) to include in the Islandora import package.
+
 [WRITER]
+; Contains configuration options for the writer, which writes the import packages to the output directory.
+
 [MANIPULATORS]
+; Contains entries for manipulators, which are MIK's plugins. Most manipulator entries contain parameters.
+
 [LOGGING]
+; Contains paths to the log files that MIK creates.
 ```
 
 Each section contains configuration options.
@@ -52,32 +67,18 @@ Each section contains configuration options.
 Filesystem paths, such as the location of the input CSV file (for CSV toolchains), the temp directory, the metadata mappings file, and the ouput directory, differ across platforms. For example:
 
 ```
-[FETCHER]
-; On Linux
-temp_directory = "/tmp/miktutorial_temp"
-; On Mac
-; temp_directory = "/Users/mark/miktutorial_temp"
-; On Windows
-; temp_directory = "c:\temp\miktutorial_temp"
-
 [FILE_GETTER]
 ; On Linux
-input_directory = "/home/mark/Downloads/mik_tutorial_data"
+; input_directory = "/home/mark/Downloads/mik_tutorial_data"
 ; On Mac
 ; input_directory = "/Users/mark/mik_tutorial_data"
 ; On Windows
 ; input_directory = "c:\temp\mik_tutorial_data"
-
-[WRITER]
-; On Linux
-output_directory = "/tmp/miktutorial_output"
-; On Mac
-; output_directory = "/Users/mark/mik_tutorial_output"
-; On Windows
-; output_directory = "c:\temp\mik_tutorial_output"
 ```
 
 ### Metadata mappings
+
+The CONTENTdm and CSV toolchains use a mapping file to define what input field or column names map to specific MODS elements.
 
 * Metadata Mappings Helper
 
@@ -194,7 +195,6 @@ Why harvest content from one Islandora instance to load into another? There are 
 
 #### Steps required to achieve the outcome
 
-
 ```
 
 ; MIK configuration file for an OAI-PMH toolchain.
@@ -238,5 +238,7 @@ path_to_manipulator_log = "/tmp/oaitest_output/manipulator.log"
 * manipulators
 * post-write hooks
 * new toolchains
+
+## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This workshop material is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
