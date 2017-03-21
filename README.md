@@ -11,8 +11,10 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 
 ## MIK in a nutshell
 
-* maybe a new version of the diagram?
-
+* maybe a new version of the overview diagram?
+* toolchains
+  * fetchers, metadata parsers, filegetters, writers
+  * manipulators
 
 ## Some use cases
 
@@ -29,8 +31,6 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 * [Composer](https://getcomposer.org/)
   1. `curl -sS https://getcomposer.org/installer | php`
   2. `php composer.phar install`
-
-### Toolchains
 
 ## Configuring MIK
 
@@ -110,6 +110,8 @@ output_directory = "/tmp/miktutorial_output"
 
 #### Background
 
+The CSV input file:
+
 ```csv
 Identifier,File,Title,Author,Date,Subjects
 doc01,the_documentary.pdf,"One: The Documentary","Ji-Hu Maruška",2014,"Numbers;Documentaries"
@@ -118,6 +120,20 @@ doc03,user_manual.pdf,"3: The User Manual","Hanne Darzi",2011,"Instructional man
 doc04,any_way.pdf,"4: Any Way You Want It","Arya Kovac",2014,"Quarterly studies;Journey (band)"
 doc05,best_friend.pdf,"5: Everybody's Best Friend","Nuka Kratochvil",2001,"Dogs"
 ```
+
+The mappings file:
+
+```csv
+Title,"<titleInfo><title>%value%</title></titleInfo>"
+Author,"<name type=""personal""><namePart>%value%</namePart><role><roleTerm type=""text"">creator</roleTerm></role></name>"
+Date,"<originInfo><dateIssued encoding=""w3cdtf"">%value%</dateIssued></originInfo>"
+Subjects,"<subject><topic>%value%</topic></subject>"
+Identifier,"<identifier type=""local"" displayLabel=""Local identifier"">%value%</identifier>"
+null0,"<genre authority=""marcgt"">article</genre>"
+null1,"<typeOfResource>text</typeOfResource>"
+```
+
+The .ini file:
 
 ```
 ; MIK configuration file used during the workshop.
@@ -175,7 +191,7 @@ Why harvest content from one Islandora instance to load into another? There are 
 
 #### Outcome
 
-* Find a small image collection in an Islandora that implements the OAI-PMH provider, and create import packages from objects in the collection.
+* Find a small image collection in an Islandora repository that implements the OAI-PMH provider, and create import packages from objects in the collection.
 
 ```
 
