@@ -106,7 +106,9 @@ output_directory = "/tmp/miktutorial_output"
 
 ### Creating Islandora import packages from CSV data
 
-* maybe use the SplitRepeatedValues and SpecificSet manipulators?
+* Outcomes:
+  * Generate a set of PDF import packages from the CSV file provided in this workshop.
+  * Use the SplitRepeatedValues, SpecificSet, and SimpleReplace manipulators
 
 #### Background
 
@@ -177,11 +179,12 @@ path_to_log = "/tmp/mik_workshop_output/mik.log"
 path_to_manipulator_log = "/tmp/mik_workshop_output/manipulator.log"
 ```
 
-#### Outcome
-
-* Generate a set of PDF import packages from the CSV file provided in this workshop.
+#### Steps required to achieve the outcome
 
 ### Creating Islandora import packages from data harvested from another repository via OAI-PMH
+
+* Outcome:
+  * Find a small image collection in an Islandora repository that implements the OAI-PMH provider, and create import packages from objects in the collection.
 
 #### Background
 
@@ -189,9 +192,8 @@ OAI-PMH is commonly used for harvesting metadata for aggregated searching or sim
 
 Why harvest content from one Islandora instance to load into another? There are some legitimate reasons to do this, but in this workshop, we do it for illustrative purposes only. Islandora has a robust [OAI-PMH provider](https://github.com/Islandora/islandora_oai), and since many Islandora instances implement it, it serves as a useful learning environment. Outside of this workshop, you might use MIK's OAI-PMH harvesting abilities to migrate from a Digital Commons or Vital repository, for example.
 
-#### Outcome
+#### Steps required to achieve the outcome
 
-* Find a small image collection in an Islandora repository that implements the OAI-PMH provider, and create import packages from objects in the collection.
 
 ```
 
@@ -227,6 +229,8 @@ output_directory = "/tmp/oaitest_output"
 path_to_log = "/tmp/oaitest_output/mik.log"
 path_to_manipulator_log = "/tmp/oaitest_output/manipulator.log"
 ```
+
+#### Steps required to achieve the outcome
 
 ## Extending MIK
 
