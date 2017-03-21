@@ -7,7 +7,7 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 * 3 hours long
 * Outcomes
   * Use MIK to create Islandora import packages from CSV metadata
-  * (Optional) Use MIK to create Islandora import packages from data harvested via OAI-PMH
+  * Use MIK to create Islandora import packages from data harvested via OAI-PMH
 
 ## MIK in a nutshell
 
@@ -108,7 +108,7 @@ output_directory = "/tmp/miktutorial_output"
 
 * Outcomes:
   * Generate a set of PDF import packages from the CSV file provided in this workshop.
-  * Use the SplitRepeatedValues, SpecificSet, and SimpleReplace manipulators
+  * Use the [SplitRepeatedValues](https://github.com/MarcusBarnes/mik/wiki/Metadata-manipulator:-SplitRepeatedValues), [SpecificSet](https://github.com/MarcusBarnes/mik/wiki/Fetcher-manipulator:-SpecificSet), and [SimpleReplace](https://github.com/MarcusBarnes/mik/wiki/Metadata-manipulator:-SimpleReplace) manipulators
 
 #### Background
 
@@ -238,3 +238,5 @@ path_to_manipulator_log = "/tmp/oaitest_output/manipulator.log"
 * manipulators
 * post-write hooks
 * new toolchains
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This workshop material is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
