@@ -1,8 +1,8 @@
-# MIK workshop Islandoracon 2017
+# MIK workshop at Islandoracon 2017
 
 Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your migration and batch loading preparation needs"
 
-## Overview
+## Workshop overview
 
 * 3 hours long
 * Outcomes
@@ -16,7 +16,7 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
   * fetchers, metadata parsers, filegetters, writers
   * manipulators
 
-## Some use cases
+## Some MIK use cases
 
 * Migrating from another repository
   * MIK has been used to migrate from [CONTENTdm](http://www.oclc.org/en/contentdm.html), [Digital Commons](https://www.bepress.com/products/digital-commons/), and [Vital](https://www.iii.com/products/digital-asset-management/).
@@ -38,25 +38,32 @@ MIK uses .ini files to store configuration details. An MIK .ini file contains th
 
 ```
 [SYSTEM]
-; This section is not used on all systems and can be empty.
+; This section is used to define PHP configuration options required
+; by MIK but not defined in the system's php.ini file. Not necessary
+; on all systems.
 
 [CONFIG]
 ; Contains information about the .ini file and toolchain.
 
 [FETCHER]
-; Contains configuration options for the fetcher, which gets a list of items to process.
+; Contains configuration options for the fetcher, which gets a list
+; of items to process.
 
 [METADATA_PARSER]
-; Contains configuration options for the metadata parser, which converts data in the input list to MODS.
+; Contains configuration options for the metadata parser, which converts
+; data in the input list to MODS.
 
 [FILE_GETTER]
-; Contains configuration options for the file getter, which retrieves the file (image, PDF, video, etc.) to include in the Islandora import package.
+; Contains configuration options for the file getter, which retrieves the file
+; (image, PDF, video, etc.) to include in the Islandora import package.
 
 [WRITER]
-; Contains configuration options for the writer, which writes the import packages to the output directory.
+; Contains configuration options for the writer, which writes the import packages
+; to the output directory.
 
 [MANIPULATORS]
-; Contains entries for manipulators, which are MIK's plugins. Most manipulator entries contain parameters.
+; Contains entries for manipulators, which are MIK's plugins. Most manipulator
+; entries contain parameters.
 
 [LOGGING]
 ; Contains paths to the log files that MIK creates.
