@@ -99,7 +99,7 @@ Filesystem paths, such as the location of the input CSV file (for CSV toolchains
 The CONTENTdm and CSV toolchains use a mapping file to define what input field or column names map to specific MODS elements. You can create them:
 
 * by hand, in a text editor
-* using the i[Metadata Mappings Helper](https://github.com/MarcusBarnes/mik/wiki/Metadata-Mappings-Helper)
+* using the [Metadata Mappings Helper](https://github.com/MarcusBarnes/mik/wiki/Metadata-Mappings-Helper)
 
 
  ![MIK Metadata Mappings Helper screenshot](https://www.dropbox.com/s/ggd9n3076gcz3qr/mappings_helper_screen_2.png?dl=1)
@@ -141,8 +141,6 @@ MIK can run scripts after it has written an import package to disk. These script
 postwritehooks[] = "/usr/bin/php extras/scripts/postwritehooks/validate_mods.php"
 postwritehooks[] = "/usr/bin/php extras/scripts/postwritehooks/generate_fits.php"
 postwritehooks[] = "/usr/bin/php extras/scripts/postwritehooks/object_timer.php"
-; postwritehooks[] = "/usr/bin/php extras/scripts/postwritehooks/sample.php"
-; postwritehooks[] = "/usr/bin/python extras/scripts/postwritehooks/sample.py"
 ```
 
 The five scripts listed above [are included](https://github.com/MarcusBarnes/mik/tree/master/extras/scripts/postwritehooks) in the MIK Github repository as examples. The ones named 'sample' illustrate some basic ways of using post-write hooks. Three complete functional scripts, `extras/scripts/postwritehooks/validate_mods.php`,  `extras/scripts/postwritehooks/generate_fits.php`, and `extras/scripts/postwritehooks/object_timer.php` do useful things, as suggested by their names.
@@ -153,9 +151,20 @@ Post-write hook scripts run as background processes, which means that they do no
 
 ### Shutdown hooks
 
+MIK can run scripts after it has completed processing all packages. These scripts are called "shutdown hooks" and are enabled in the .ini file's `[WRITER]` section like this:
+
+```
+[WRITER]
+shutdownhooks[] = "/usr/bin/php extras/scripts/shutdownhooks/apply_xslt_with_saxon.php"
+shutdownhooks[] = "/usr/bin/php extras/scripts/shutdownhooks/delete_temp_files.php"
+```
+
+These scripts differ from post-write hooks, which run after MIK writes the import package for each object, in that they run after all packages have been generated. They are useful for cleanup tasks, for example.
+
 ## Running MIK
 
 * `php mik -c test.ini -cc all`
+* `php mik -c test.ini -l 10`
 
 ### Workflow
 
