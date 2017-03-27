@@ -14,7 +14,8 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 
 ## MIK in a nutshell
 
-* maybe a new version of the overview diagram?
+![MIK overview](https://www.dropbox.com/s/hvoi7vy67oq4mv2/MIK_overview_with_callout.png?dl=1)
+
 * toolchains
   * fetchers, metadata parsers, filegetters, writers
   * manipulators
