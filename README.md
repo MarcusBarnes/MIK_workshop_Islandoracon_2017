@@ -4,6 +4,9 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 
 ## Workshop overview
 
+* Your instructors
+  * Marcus Barnes, The Digital Scholarship Unit (DSU) at the University of Toronto Scarborough Library
+  * Mark Jordan, Simon Fraser University Library
 * Duration: 3 hours
   * First half hour: installin MIK
   * Next 2 hours: hands on exercises
@@ -50,13 +53,6 @@ Each set of content you process with MIK requires a configuration file (also kno
   * A self-paced tutorial that takes you through the process of generating Islandora import packages for a set of five photos.
 * [cookbook](https://github.com/MarcusBarnes/mik/wiki/The-MIK-Cookbook)
   * A set of short "how to" recipes documenting how to accomplish specific tasks using MIK.
-
-## MIK's log files
-
-* mik.log
-* problem_records.log
-* input_validators.log
-* manipulators.log
 
 ## Installing MIK
 
@@ -182,6 +178,13 @@ shutdownhooks[] = "/usr/bin/php extras/scripts/shutdownhooks/delete_temp_files.p
 ```
 
 These scripts differ from post-write hooks, which run after MIK writes the import package for each object, in that they run after all packages have been generated. They are useful for cleanup tasks, for example.
+
+## MIK's log files
+
+* mik.log
+* problem_records.log
+* input_validator.log
+* manipulator.log
 
 ## Running MIK
 
