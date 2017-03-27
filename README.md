@@ -4,7 +4,10 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 
 ## Workshop overview
 
-* 3 hours long
+* Duration: 3 hours
+  * First half hour: installin MIK
+  * Next 2 hours: hands on exercises
+  * Last half hour: discussion
 * Outcomes
   * Use MIK to create Islandora import packages from CSV metadata
   * Use MIK to create Islandora import packages from data harvested via OAI-PMH
@@ -19,11 +22,19 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 ## Some MIK use cases
 
 * Migrating from another repository
-  * MIK has been used to migrate from [CONTENTdm](http://www.oclc.org/en/contentdm.html), [Digital Commons](https://www.bepress.com/products/digital-commons/), and [Vital](https://www.iii.com/products/digital-asset-management/).
+  * MIK has been used to migrate from [CONTENTdm](http://www.oclc.org/en/contentdm.html), [Digital Commons](https://www.bepress.com/products/digital-commons/), [Vital](https://www.iii.com/products/digital-asset-management/), and custom repositories running on [relational databases](https://github.com/MarcusBarnes/mik/wiki/Migration-Guide:-Simon-Fraser-University-Library-Editorial-Cartoons-Collection).
 * Preparing content for ingestion into Islandora
   * MIK can read a CSV metadata file and generate Islandora import packages for each object described in it. You can create packages for images/PDFs/videos, books, newspaper issues, and simple compound objects from CSV files.
 * Automated ingestion workflows
   * MIK has been scripted to convert content saved in watch folders into Islandora import packages. Running MIK as a timed (e.g., cron) job on this content will allows you to automate content ingestion.
+
+## MIK's documentation
+
+* wiki
+* tutorial
+* cookbook
+
+## MIK's log files
 
 ## Installing MIK
 
@@ -85,9 +96,10 @@ Filesystem paths, such as the location of the input CSV file (for CSV toolchains
 
 ### Metadata mappings
 
-The CONTENTdm and CSV toolchains use a mapping file to define what input field or column names map to specific MODS elements.
+The CONTENTdm and CSV toolchains use a mapping file to define what input field or column names map to specific MODS elements. You can create them:
 
-* Metadata Mappings Helper
+* by hand, in a text editor
+* using the Metadata Mappings Helper
 
 ### A closer look at toolchains
 
@@ -136,16 +148,18 @@ A good example of how a post-write hook script can be used is to produce [FITS](
 
 Post-write hook scripts run as background processes, which means that they do not need to finish running before MIK moves on to process the next object. This speeds up MIK considerably.
 
+### Shutdown hooks
 
 ## Running MIK
 
-* Use `--checkconfig`.
+* `php mik -c test.ini -cc all`
 
 ### Workflow
 
 * configure, test (random set, specific set, etc.), reconfigure, retest.
   * start with metadata mappings
   * manipulators
+  * post-write hooks
 * automating production workflows
 
 ## Hands-on activities
@@ -172,13 +186,13 @@ doc05,best_friend.pdf,"5: Everybody's Best Friend","Nuka Kratochvil",2001,"Dogs"
 The mappings file:
 
 ```csv
-Title,"<titleInfo><title>%value%</title></titleInfo>"
-Author,"<name type=""personal""><namePart>%value%</namePart><role><roleTerm type=""text"">creator</roleTerm></role></name>"
-Date,"<originInfo><dateIssued encoding=""w3cdtf"">%value%</dateIssued></originInfo>"
-Subjects,"<subject><topic>%value%</topic></subject>"
-Identifier,"<identifier type=""local"" displayLabel=""Local identifier"">%value%</identifier>"
-null0,"<genre authority=""marcgt"">article</genre>"
-null1,"<typeOfResource>text</typeOfResource>"
+Title,<titleInfo><title>%value%</title></titleInfo>
+Author,<name type='personal'><namePart>%value%</namePart><role><roleTerm type='text'>creator</roleTerm></role></name>
+Date,<originInfo><dateIssued encoding='w3cdtf'>%value%</dateIssued></originInfo>
+Subjects,<subject><topic>%value%</topic></subject>
+Identifier,<identifier type='local' displayLabel='Local identifier'>%value%</identifier>
+null0,<genre authority='marcgt'>article</genre>
+null1,<typeOfResource>text</typeOfResource>
 ```
 
 The .ini file:
@@ -227,6 +241,12 @@ path_to_manipulator_log = "/tmp/mik_workshop_output/manipulator.log"
 
 #### Steps required to achieve the outcome
 
+##### 1. Create your mappings file
+##### 2. Create your .ini file
+##### 3. Test
+##### 4. When ready, generate your ingest packages
+
+
 ### Creating Islandora import packages from data harvested from another repository via OAI-PMH
 
 * Outcome:
@@ -240,8 +260,11 @@ Why harvest content from one Islandora instance to load into another? There are 
 
 #### Steps required to achieve the outcome
 
-```
+##### 1. Create your .ini file
+##### 2. Test
+##### 3. When ready, generate your ingest packages
 
+```
 ; MIK configuration file for an OAI-PMH toolchain.
 
 [CONFIG]
@@ -267,6 +290,8 @@ temp_directory = "/tmp/oaitest_temp"
 [WRITER]
 class = Oaipmh
 output_directory = "/tmp/oaitest_output"
+datastream_ids[] = OBJ
+datastream_ids[] = PDF
 
 [MANIPULATORS]
 
@@ -281,7 +306,7 @@ path_to_manipulator_log = "/tmp/oaitest_output/manipulator.log"
 
 * configuration over code
 * manipulators
-* post-write hooks
+* post-write hooks and shutdown hooks
 * new toolchains
 
 ## License

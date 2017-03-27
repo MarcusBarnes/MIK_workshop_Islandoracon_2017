@@ -1,7 +1,7 @@
-Title,"<titleInfo><title>%value%</title></titleInfo>"
-Author,"<name type=""personal""><namePart>%value%</namePart><role><roleTerm type=""text"">creator</roleTerm></role></name>"
-Date,"<originInfo><dateIssued encoding=""w3cdtf"">%value%</dateIssued></originInfo>"
-Subjects,"<subject><topic>%value%</topic></subject>"
-Identifier,"<identifier type=""local"" displayLabel=""Local identifier"">%value%</identifier>"
-null0,"<genre authority=""marcgt"">article</genre>"
-null1,"<typeOfResource>text</typeOfResource>"
+Title,<titleInfo><title>%value%</title></titleInfo>
+Author,<name type='personal'><namePart>%value%</namePart><role><roleTerm type='text'>creator</roleTerm></role></name>
+Date,<originInfo><dateIssued encoding='w3cdtf'>%value%</dateIssued></originInfo>
+Subjects,<subject><topic>%value%</topic></subject>
+Identifier,<identifier type='local' displayLabel='Local identifier'>%value%</identifier>
+null0,<genre authority='marcgt'>article</genre>
+null1,<typeOfResource>text</typeOfResource>
