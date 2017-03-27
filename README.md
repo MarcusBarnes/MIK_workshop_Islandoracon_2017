@@ -45,11 +45,11 @@ Each set of content you process with MIK requires a configuration file (also kno
 ## MIK's documentation
 
 * [wiki](https://github.com/MarcusBarnes/mik/wiki)
-  Links to documentation on all of the toolchains, and their components.
+  * Links to documentation on all of the toolchains, and their components.
 * [tutorial](https://github.com/MarcusBarnes/mik/wiki/Tutorial)
-  A self-paced tutorial that takes you through the process of generating Islandora import packages for a set of five photos.
+  * A self-paced tutorial that takes you through the process of generating Islandora import packages for a set of five photos.
 * [cookbook](https://github.com/MarcusBarnes/mik/wiki/The-MIK-Cookbook)
-  A set of short "how to" recipes documenting how to accomplish specific tasks using MIK.
+  * A set of short "how to" recipes documenting how to accomplish specific tasks using MIK.
 
 ## MIK's log files
 
