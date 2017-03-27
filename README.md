@@ -99,7 +99,10 @@ Filesystem paths, such as the location of the input CSV file (for CSV toolchains
 The CONTENTdm and CSV toolchains use a mapping file to define what input field or column names map to specific MODS elements. You can create them:
 
 * by hand, in a text editor
-* using the Metadata Mappings Helper
+* using the i[Metadata Mappings Helper](https://github.com/MarcusBarnes/mik/wiki/Metadata-Mappings-Helper)
+
+
+ ![MIK Metadata Mappings Helper screenshot](https://www.dropbox.com/s/ggd9n3076gcz3qr/mappings_helper_screen_2.png?dl=1)
 
 ### A closer look at toolchains
 
@@ -166,7 +169,7 @@ Post-write hook scripts run as background processes, which means that they do no
 
 ### Creating Islandora import packages from CSV data
 
-* Outcomes:
+#### Outcomes
   * Generate a set of PDF import packages from the CSV file provided in this workshop.
   * Use the [SplitRepeatedValues](https://github.com/MarcusBarnes/mik/wiki/Metadata-manipulator:-SplitRepeatedValues), [SpecificSet](https://github.com/MarcusBarnes/mik/wiki/Fetcher-manipulator:-SpecificSet), and [SimpleReplace](https://github.com/MarcusBarnes/mik/wiki/Metadata-manipulator:-SimpleReplace) manipulators
 
@@ -249,8 +252,8 @@ path_to_manipulator_log = "/tmp/mik_workshop_output/manipulator.log"
 
 ### Creating Islandora import packages from data harvested from another repository via OAI-PMH
 
-* Outcome:
-  * Find a small image collection in an Islandora repository that implements the OAI-PMH provider, and create import packages from objects in the collection.
+#### Outcome
+  * Generate a set of import packages from objects in an OAI-PMH repository.
 
 #### Background
 
@@ -258,11 +261,7 @@ OAI-PMH is commonly used for harvesting metadata for aggregated searching or sim
 
 Why harvest content from one Islandora instance to load into another? There are some legitimate reasons to do this, but in this workshop, we do it for illustrative purposes only. Islandora has a robust [OAI-PMH provider](https://github.com/Islandora/islandora_oai), and since many Islandora instances implement it, it serves as a useful learning environment. Outside of this workshop, you might use MIK's OAI-PMH harvesting abilities to migrate from a Digital Commons or Vital repository, for example.
 
-#### Steps required to achieve the outcome
-
-##### 1. Create your .ini file
-##### 2. Test
-##### 3. When ready, generate your ingest packages
+The .ini file:
 
 ```
 ; MIK configuration file for an OAI-PMH toolchain.
@@ -301,6 +300,11 @@ path_to_manipulator_log = "/tmp/oaitest_output/manipulator.log"
 ```
 
 #### Steps required to achieve the outcome
+
+##### 1. Create your .ini file
+  * Find a small image collection in an Islandora repository that implements the OAI-PMH provider.
+##### 2. Test
+##### 3. When ready, generate your ingest packages
 
 ## Extending MIK
 
