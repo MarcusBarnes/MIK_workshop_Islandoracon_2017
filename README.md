@@ -14,11 +14,24 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 
 ## MIK in a nutshell
 
+MIK is an example of and "Extract, Transform, Load" application. However, it only extracts and transforms. It delegates the loading of content into Islandora to the existing batch modules. In other words, MIK prepares your content for loading into Islandora:
+
 ![MIK overview](https://www.dropbox.com/s/hvoi7vy67oq4mv2/MIK_overview_with_callout.png?dl=1)
 
-* toolchains
-  * fetchers, metadata parsers, filegetters, writers
-  * manipulators
+MIK is designed to be flexible, configurable, and extensible. It does this by breaking down the parts of the "extract and trasform" process into components:
+
+* fetchers
+  Get a list of items to process, with their associated metadata. Possible sources are CONTENTdm and OAI-PMH repositories, adn CSV files.
+* metadata parsers
+  Take the metadata for each item and convert it to MODS or DC.
+* filegetters
+  Find and copy (or download) the image, PDF, video, and other files to be imported into Islandora.
+* writers
+  Assemble the metadata and files into Islandora import packages ready to use as input for Islandora Batch, Book Batch, Newspapers Batch, and Compound Batch.
+  
+MIK also has plugins (but called "manipulators") that modify how fetchers, metadata parsers, filegetters, and writers work.
+
+Each set of content you process with MIK requires a configuration file, which lists all of the options used by the components described here. A particular combination of components is known as a "toolchain". For example, there is a CONTENTdm Books toolchain, a CSV Single File toolchain, and several OAI-PMH toolchains.
 
 ## Some MIK use cases
 
@@ -31,11 +44,19 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 
 ## MIK's documentation
 
-* wiki
-* tutorial
-* cookbook
+* [wiki](https://github.com/MarcusBarnes/mik/wiki)
+  Links to documentation on all of the toolchains, and their components.
+* [tutorial](https://github.com/MarcusBarnes/mik/wiki/Tutorial)
+  A self-paced tutorial that takes you through the process of generating Islandora import packages for a set of five photos.
+* [cookbook](https://github.com/MarcusBarnes/mik/wiki/The-MIK-Cookbook)
+  A set of short "how to" recipes documenting how to accomplish specific tasks using MIK.
 
 ## MIK's log files
+
+* mik.log
+* problem_records.log
+* input_validators.log
+* manipulators.log
 
 ## Installing MIK
 
