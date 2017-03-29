@@ -42,6 +42,21 @@ Internally, MIK breaks the task of converting the input data into Islandora impo
 
 Manipulators are MIK plugins that let you perform tasks at specific times in the MIK execution lifecycle, or to change how fetchers, file getters, and metadata parsers work. All the code for a manipulator is encapsulated in a single PHP class file. Manipulators are registered in the MIK configuration file in the `[MANIPULATORS]` section, and may take parameters. The signatures for manipulators identify the group they are in, followed by an equal sign, followed by the manipulator's parameters, which are delimited by the pipe symbol (`|`). The first parameter is always the name of the manipulator. For example, in the following example, the "NormalizeDate" manipulator is being registered, taking the parameters "Date", "dateIssued", and "m": 
 
+`metadatamanipulators[] = "NormalizeDate|Date|dateIssued|m"`
+
+The most commonly used manipulators include:
+
+Type | Manipulator | Function | Toolchains
+------ | ------ | -----
+Fetcher | SpecificSet | Limits objects to those named in a list. | CSV, CONTENTdm
+Fetcher | RandomSet | Limits objects to a random set of a specific size. | CSV, CONTENTdm
+Fetcher | SpecificSet | Limits objects to those named in a list. | CSV, CONTENTdm
+Fetcher | CdmSingleFileByExtension | Limits objects to those with files of specific extensions. | CONTENTdm
+Metadata | SplitRepeatedValues | Splits values in a single field into separate MODS elements. | CSV, CONTENTdm
+Metadata | NormalizeDate | Converts dates into yyyy-mm-dd or yyyy-mm. | CSV, CONTENTdm
+Metadata | SimpleReplace | Search and replace for strings in MODS elements. | CSV, CONTENTdm
+Metadata | InsertXmlFromTemplate | Generates MODS XML fragments from external templates. | CSV, CONTENTdm
+
 ## Some MIK use cases
 
 * Migrating from another repository
@@ -53,14 +68,18 @@ Manipulators are MIK plugins that let you perform tasks at specific times in the
 
 ## MIK's documentation
 
-MIK is a complex application, but it is well documented:
+MIK's [wiki](https://github.com/MarcusBarnes/mik/wiki) is the chief source of documentation. Sections we'd like to hightligh are:
 
-* [wiki](https://github.com/MarcusBarnes/mik/wiki)
-  * Links to documentation on all of the toolchains, and their components.
-* [cookbook](https://github.com/MarcusBarnes/mik/wiki/The-MIK-Cookbook)
+* Toolchain documentation
+  * Detailed guides to configuringa using the various CSV, CONTENTdm, and OAI-PMH toolchains.
+* Manipulator documentation
+  * Detailed guides to configuringa using MIK's manipulators.
+* The [MIK Cookbook](https://github.com/MarcusBarnes/mik/wiki/The-MIK-Cookbook)
   * A set of short "how to" recipes documenting how to accomplish specific tasks using MIK.
-* [tutorial](https://github.com/MarcusBarnes/mik/wiki/Tutorial)
+* The [MIK tutorial](https://github.com/MarcusBarnes/mik/wiki/Tutorial)
   * A self-paced tutorial that takes you through the process of generating Islandora import packages for a set of five photos.
+* Migration guides
+  * Several detailed guides exist describing how to use MIK to migrate from repository platforms such as CONTENTdm and Digital Commons.
 
 ## Installing MIK
 
@@ -340,9 +359,7 @@ As we have seen, MIK's .ini files contain a lot of configuration options.
 
 ### Manipulators
 
-Some of MIK's manipulators allow very complex customizations without writing any PHP code. For example, the InsertXmlFromTemplate metadata manipulator....
-
-The SplitRepeatedValues metadata manipulator....
+Some of MIK's manipulators allow very complex customizations without writing any PHP code. For example, the SplitRepeatedValues metadata manipulator....
 
 The SpecificSet fetcher manipulator...
 
