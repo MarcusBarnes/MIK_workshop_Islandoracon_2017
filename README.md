@@ -1,6 +1,6 @@
 # MIK workshop at Islandoracon 2017
 
-Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your migration and batch loading preparation needs"
+Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your migration and batch preparation needs"
 
 ## Workshop overview
 
@@ -47,14 +47,14 @@ Manipulators are MIK plugins that let you perform tasks at specific times in the
 The most commonly used manipulators include:
 
 Type | Manipulator | Function | Toolchains
------- | ------ | -----
+--- | --- | ---
 Fetcher | SpecificSet | Limits objects to those named in a list. | CSV, CONTENTdm
 Fetcher | RandomSet | Limits objects to a random set of a specific size. | CSV, CONTENTdm
 Fetcher | SpecificSet | Limits objects to those named in a list. | CSV, CONTENTdm
 Fetcher | CdmSingleFileByExtension | Limits objects to those with files of specific extensions. | CONTENTdm
 Metadata | SplitRepeatedValues | Splits values in a single field into separate MODS elements. | CSV, CONTENTdm
 Metadata | NormalizeDate | Converts dates into yyyy-mm-dd or yyyy-mm. | CSV, CONTENTdm
-Metadata | SimpleReplace | Search and replace for strings in MODS elements. | CSV, CONTENTdm
+Metadata | SimpleReplace | Search and replace strings in MODS elements. | CSV, CONTENTdm
 Metadata | InsertXmlFromTemplate | Generates MODS XML fragments from external templates. | CSV, CONTENTdm
 
 ## Some MIK use cases
@@ -271,7 +271,6 @@ file_name_field = File
 
 [WRITER]
 class = CsvSingleFile
-preserve_content_filenames = true
 output_directory = "/tmp/mik_workshop_output"
 ; postwritehooks[] = "/usr/bin/php extras/scripts/postwritehooks/validate_mods.php"
 ; During testing, it's a good idea to create only the MODS XML files.
@@ -348,24 +347,6 @@ path_to_manipulator_log = "/tmp/oaitest_output/manipulator.log"
   * Find a small image collection in an Islandora repository that implements the OAI-PMH provider.
 ##### 2. Test
 ##### 3. When ready, generate your ingest packages
-
-## Extending MIK
-
-As stated earlier, MIK is designed to be extensible. There a number of ways you can do this.
-
-### Configuration
-
-As we have seen, MIK's .ini files contain a lot of configuration options.
-
-### Manipulators
-
-Some of MIK's manipulators allow very complex customizations without writing any PHP code. For example, the SplitRepeatedValues metadata manipulator....
-
-The SpecificSet fetcher manipulator...
-
-### Post-write hooks and shutdown hooks
-
-### Writing new toolchains
 
 ## License
 
