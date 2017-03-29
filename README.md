@@ -47,7 +47,7 @@ Manipulators are MIK plugins that let you perform tasks at specific times in the
 The most commonly used manipulators include:
 
 Type | Manipulator | Function | Toolchains
---- | --- | ---
+--- | --- | --- | ---
 Fetcher | SpecificSet | Limits objects to those named in a list. | CSV, CONTENTdm
 Fetcher | RandomSet | Limits objects to a random set of a specific size. | CSV, CONTENTdm
 Fetcher | SpecificSet | Limits objects to those named in a list. | CSV, CONTENTdm
