@@ -48,14 +48,13 @@ The most commonly used manipulators include:
 
 Type | Manipulator | Function | Toolchains
 --- | --- | --- | ---
-Fetcher | SpecificSet | Limits objects to those named in a list. | CSV, CONTENTdm
-Fetcher | RandomSet | Limits objects to a random set of a specific size. | CSV, CONTENTdm
-Fetcher | SpecificSet | Limits objects to those named in a list. | CSV, CONTENTdm
-Fetcher | CdmSingleFileByExtension | Limits objects to those with files of specific extensions. | CONTENTdm
-Metadata | SplitRepeatedValues | Splits values in a single field into separate MODS elements. | CSV, CONTENTdm
-Metadata | NormalizeDate | Converts dates into yyyy-mm-dd or yyyy-mm. | CSV, CONTENTdm
-Metadata | SimpleReplace | Search and replace strings in MODS elements. | CSV, CONTENTdm
-Metadata | InsertXmlFromTemplate | Generates MODS XML fragments from external templates. | CSV, CONTENTdm
+Fetcher | [SpecificSet](https://github.com/MarcusBarnes/mik/wiki/Fetcher-manipulator:-SpecificSet) | Limits objects to those named in a list. | CSV, CONTENTdm
+Fetcher | [RandomSet](https://github.com/MarcusBarnes/mik/wiki/Fetcher-manipulator:-RandomSet) | Limits objects to a random set of a specific size. | CSV, CONTENTdm
+Fetcher | [CdmSingleFileByExtension](https://github.com/MarcusBarnes/mik/wiki/Fetcher-manipulator:-CdmSingleFileByExtension) | Limits objects to those with files of specific extensions. | CONTENTdm
+Metadata | [SplitRepeatedValues](https://github.com/MarcusBarnes/mik/wiki/Metadata-manipulator:-SplitRepeatedValues) | Splits values in a single field into separate MODS elements. | CSV, CONTENTdm
+Metadata | [NormalizeDate](https://github.com/MarcusBarnes/mik/wiki/Metadata-manipulator:-NormalizeDate) | Converts dates into yyyy-mm-dd or yyyy-mm. | CSV, CONTENTdm
+Metadata | [SimpleReplace](https://github.com/MarcusBarnes/mik/wiki/Metadata-manipulator:-SimpleReplace) | Search and replace strings in MODS elements. | CSV, CONTENTdm
+Metadata | [InsertXmlFromTemplate](https://github.com/MarcusBarnes/mik/wiki/Metadata-manipulator:-InsertXmlFromTemplate) | Generates MODS XML fragments from external templates. | CSV, CONTENTdm
 
 ## Some MIK use cases
 
