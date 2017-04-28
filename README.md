@@ -8,7 +8,7 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
   * Marcus Barnes, The Digital Scholarship Unit (DSU) at the University of Toronto Scarborough Library
   * Mark Jordan, Simon Fraser University Library
 * Duration: 3 hours
-  * First half hour: installin MIK
+  * First half hour: installing MIK
   * Next 2 hours: hands on exercises
   * Last half hour: discussion
 * Outcomes
