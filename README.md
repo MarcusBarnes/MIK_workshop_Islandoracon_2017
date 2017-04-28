@@ -17,7 +17,7 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 
 ## MIK in a nutshell
 
-MIK is an example of and "Extract, Transform, Load" application. However, it only extracts and transforms. It delegates the loading of content into Islandora to the existing batch modules. In other words, MIK prepares transforms your content into ingest packages ready to hand off to the batch modules for loading into Islandora:
+MIK is an example of and "Extract, Transform, Load" application. However, it only extracts and transforms. It delegates the loading of content into Islandora to the existing batch modules. In other words, MIK prepares and transforms your content into ingest packages ready to hand off to the batch modules for loading into Islandora:
 
 ![MIK overview](https://www.dropbox.com/s/hvoi7vy67oq4mv2/MIK_overview_with_callout.png?dl=1)
 
