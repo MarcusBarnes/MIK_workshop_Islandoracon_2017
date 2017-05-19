@@ -17,7 +17,7 @@ Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your m
 
 ## MIK in a nutshell
 
-MIK is an example of and "Extract, Transform, Load" application. However, it only extracts and transforms. It delegates the loading of content into Islandora to the existing batch modules. In other words, MIK prepares and transforms your content into ingest packages ready to hand off to the batch modules for loading into Islandora:
+MIK is an example of an "Extract, Transform, Load" application. However, it only extracts and transforms. It delegates the loading of content into Islandora to the existing batch modules. In other words, MIK prepares and transforms your content into ingest packages ready to hand off to the batch modules for loading into Islandora:
 
 ![MIK overview](https://www.dropbox.com/s/hvoi7vy67oq4mv2/MIK_overview_with_callout.png?dl=1)
 
@@ -175,9 +175,11 @@ MIK can run scripts after it has written an import package to disk. These script
 postwritehooks[] = "/usr/bin/php extras/scripts/postwritehooks/validate_mods.php"
 postwritehooks[] = "/usr/bin/php extras/scripts/postwritehooks/generate_fits.php"
 postwritehooks[] = "/usr/bin/php extras/scripts/postwritehooks/object_timer.php"
+; postwritehooks[] = "/usr/bin/php extras/scripts/postwritehooks/sample.php"
+; postwritehooks[] = "/usr/bin/python extras/scripts/postwritehooks/sample.py"
 ```
 
-The five scripts listed above [are included](https://github.com/MarcusBarnes/mik/tree/master/extras/scripts/postwritehooks) in the MIK Github repository as examples. The ones named 'sample' illustrate some basic ways of using post-write hooks. Three complete functional scripts, `extras/scripts/postwritehooks/validate_mods.php`,  `extras/scripts/postwritehooks/generate_fits.php`, and `extras/scripts/postwritehooks/object_timer.php` do useful things, as suggested by their names.
+The three scripts listed above [are included](https://github.com/MarcusBarnes/mik/tree/master/extras/scripts/postwritehooks) in the MIK Github repository as examples. The ones named 'sample' illustrate some basic ways of using post-write hooks. Three complete functional scripts, `extras/scripts/postwritehooks/validate_mods.php`,  `extras/scripts/postwritehooks/generate_fits.php`, and `extras/scripts/postwritehooks/object_timer.php` do useful things, as suggested by their names.
 
 A good example of how a post-write hook script can be used is to produce [FITS](https://github.com/harvard-lts/fits) output for newspaper page objects. As soon as MIK finishes creating the package, the `generate_fits.php` script runs FITS against each of the child OBJ datastream files and writes out its output for each one to TECHMD.xml within the page folder. This file is then loaded by the Islandora Newspaper Batch module, ending up as the TECHMD datastream for each page object. Another very useful example is `validate_mods.php,` which validates each MODS.xml file produced by MIK and writes out the result of the validation to the MIK log file.
 
