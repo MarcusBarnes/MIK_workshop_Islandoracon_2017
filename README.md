@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/80765568.svg)](https://zenodo.org/badge/latestdoi/80765568)
 # MIK workshop at Islandoracon 2017
 
 Islandoracon 2017 Post-Conference Session "Move to Islandora Kit: For all your migration and batch preparation needs"
